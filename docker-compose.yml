@@ -1,0 +1,37 @@
+version: '2.15.1'
+
+services:
+
+##### Assessment Tools #####
+
+  kali: 
+    build: ./kali
+    image: packethead/kali
+    container_name: kali
+    hostname: kali
+    privileged: true
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    tty: true
+    networks:
+      packethead:
+        ipv4_address: 10.20.0.200
+    volumes: 
+      - /Users/em0ral/Containers/kali/:/root/kali 
+      - ./kali/config/.tmux.conf:/root/.tmux.conf
+    restart: unless-stopped
+
+
+##### Modbus Server #####
+ 
+##### Networks #####
+
+networks:
+ packethead:
+  driver: bridge
+  ipam:
+    config:
+      - subnet: 10.20.0.0/24
+        gateway: 10.20.0.1
+    
+
