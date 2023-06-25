@@ -21,26 +21,23 @@ services:
       - ./kali/config/.tmux.conf:/root/.tmux.conf
     restart: unless-stopped
 
-  modbus_server: 
-    build: ./modbus
-    image: packethead/modbus_server
-    container_name: modbus_server
-    hostname: modbus_server
-    privileged: true
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=0
-    tty: true
-    networks:
-      packethead:
-        ipv4_address: 10.20.0.100
-    volumes: 
-      - /Users/em0ral/Containers/modbus_server/:/modbus  
-      - ./kali/config/.tmux.conf:/root/.tmux.conf
-    restart: unless-stopped
+      #  modbus_server: 
+      #    build: ./modbus
+      #    image: packethead/modbus_server
+      #    container_name: modbus_server
+      #    hostname: modbus_server
+      #    privileged: true
+      #    sysctls:
+      #      - net.ipv6.conf.all.disable_ipv6=0
+      #    tty: true
+      #    networks:
+      #      packethead:
+      #        ipv4_address: 10.20.0.100
+      #    volumes: 
+      #      - /Users/em0ral/Containers/modbus_server/:/modbus  
+      #      - ./kali/config/.tmux.conf:/root/.tmux.conf
+      #    restart: unless-stopped
  
-
-
-##### Modbus Server #####
  
 ##### Networks #####
 
