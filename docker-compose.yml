@@ -17,7 +17,7 @@ services:
       packethead:
         ipv4_address: 10.20.0.10
     volumes: 
-      - /Users/em0ral/Containers/kali/:/root/kali 
+      - /Users/em0ral/ContainerData/kali/:/root/kali 
       - ./kali/config/.tmux.conf:/root/.tmux.conf
     restart: unless-stopped
 
