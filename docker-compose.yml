@@ -38,7 +38,28 @@ services:
       #      - ./kali/config/.tmux.conf:/root/.tmux.conf
       #    restart: unless-stopped
  
- 
+
+
+  kali2:
+    image: kasmweb/core-kali-rolling:1.13.0
+    container_name: kali-gui
+    hostname: kali-gui
+    privileged: true
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    user: 'root'
+    tty: true
+    shm_size: '512m'
+    environment:
+     VNC_PW: 'password'
+    ports:
+     - 6901:6901
+    networks:
+     packethead:
+      ipv4_address: 10.20.0.250
+    volumes: 
+      - /Users/em0ral/ContainerData/kali-gui:/home/kasm-user/kali
+      
 ##### Networks #####
 
 networks:
