@@ -41,7 +41,7 @@ services:
 
 
   kali2:
-    image: kasmweb/core-kali-rolling:1.13.0
+    image: kasmweb/kali-rolling-desktop:1.13.0
     container_name: kali-gui
     hostname: kali-gui
     privileged: true
@@ -59,7 +59,8 @@ services:
       ipv4_address: 10.20.0.250
     volumes: 
       - /Users/em0ral/ContainerData/kali-gui:/home/kasm-user/kali
-      
+    restart: unless-stopped
+
 ##### Networks #####
 
 networks:
