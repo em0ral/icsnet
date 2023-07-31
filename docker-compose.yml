@@ -38,10 +38,8 @@ services:
       #      - ./kali/config/.tmux.conf:/root/.tmux.conf
       #    restart: unless-stopped
  
-
-
   kali2:
-    image: kasmweb/kali-rolling-desktop:1.13.0
+    image: kasmweb/core-kali-rolling:1.13.0
     container_name: kali-gui
     hostname: kali-gui
     privileged: true
