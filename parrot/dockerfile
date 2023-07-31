@@ -1,0 +1,17 @@
+FROM parrotsec/security
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV TERM xterm-256color
+    
+# Default powerline10k theme, no plugins installed
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)"
+
+RUN git clone https://github.com/tmux-plugins/tmux-logging /opt/tmux-logging/
+
+# Enable SSH
+RUN sudo update-rc.d -f ssh remove && \
+    sudo update-rc.d -f ssh defaults && \
+    sudo service ssh restart && \
+    sudo update-rc.d -f ssh enable 2 3 4 5
+
+ENTRYPOINT ["/bin/bash"]
