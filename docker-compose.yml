@@ -23,27 +23,11 @@ services:
 
 
 
-  Parrot:
-    build: ./parrot
-    image: packethead/parrot
-    container_name: parrot
-    hostname: parrot
-    privileged: true
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=0
-    tty: true
-    networks:
-      packethead:
-        ipv4_address: 10.20.0.100
-    volumes: 
-      - /Users/em0ral/ContainerData/parrot/:/root/htb
-      - ./parrot/config/.tmux.conf:/root/.tmux.conf
-
-      #  modbus_server: 
-      #    build: ./modbus
-      #    image: packethead/modbus_server
-      #    container_name: modbus_server
-      #    hostname: modbus_server
+      #  Parrot:
+      #    build: ./parrot
+      #    image: packethead/parrot
+      #    container_name: parrot
+      #    hostname: parrot
       #    privileged: true
       #    sysctls:
       #      - net.ipv6.conf.all.disable_ipv6=0
@@ -52,60 +36,76 @@ services:
       #      packethead:
       #        ipv4_address: 10.20.0.100
       #    volumes: 
-      #      - /Users/em0ral/Containers/modbus_server/:/modbus  
-      #      - ./kali/config/.tmux.conf:/root/.tmux.conf
+      #      - /Users/em0ral/ContainerData/parrot/:/root/htb
+      #      - ./parrot/config/.tmux.conf:/root/.tmux.conf
+      #
+      #      #  modbus_server: 
+      #      #    build: ./modbus
+      #      #    image: packethead/modbus_server
+      #      #    container_name: modbus_server
+      #      #    hostname: modbus_server
+      #      #    privileged: true
+      #      #    sysctls:
+      #      #      - net.ipv6.conf.all.disable_ipv6=0
+      #      #    tty: true
+      #      #    networks:
+      #      #      packethead:
+      #      #        ipv4_address: 10.20.0.100
+      #      #    volumes: 
+      #      #      - /Users/em0ral/Containers/modbus_server/:/modbus  
+      #      #      - ./kali/config/.tmux.conf:/root/.tmux.conf
+      #      #    restart: unless-stopped
+      # 
+      #  kali2:
+      #    image: kasmweb/core-kali-rolling:1.13.0
+      #    container_name: kali-gui
+      #    hostname: kali-gui
+      #    privileged: true
+      #    sysctls:
+      #      - net.ipv6.conf.all.disable_ipv6=0
+      #    user: 'root'
+      #    tty: true
+      #    shm_size: '512m'
+      #    environment:
+      #     VNC_PW: 'password'
+      #    ports:
+      #     - 6901:6901
+      #    networks:
+      #     packethead:
+      #      ipv4_address: 10.20.0.250
+      #    volumes: 
+      #      - /Users/em0ral/ContainerData/kali-gui:/home/kasm-user/kali
       #    restart: unless-stopped
- 
-  kali2:
-    image: kasmweb/core-kali-rolling:1.13.0
-    container_name: kali-gui
-    hostname: kali-gui
-    privileged: true
-    sysctls:
-      - net.ipv6.conf.all.disable_ipv6=0
-    user: 'root'
-    tty: true
-    shm_size: '512m'
-    environment:
-     VNC_PW: 'password'
-    ports:
-     - 6901:6901
-    networks:
-     packethead:
-      ipv4_address: 10.20.0.250
-    volumes: 
-      - /Users/em0ral/ContainerData/kali-gui:/home/kasm-user/kali
-    restart: unless-stopped
-
-
-  juice:
-    image: bkimminich/juice-shop
-    container_name: juice
-    ports:
-     - 8080:3000
-    networks:
-      packethead:
-        ipv4_address: 10.20.0.20
-
-
-  dvwa:
-    image: vulnerables/web-dvwa
-    container_name: dvwa
-    ports:
-      - 8081:80
-    networks:
-      packethead:
-        ipv4_address: 10.20.0.30
-
-  webgoat:
-    image: webgoat/webgoat
-    container_name: webgoat
-    ports:
-      - 8082:8080
-      - 9090:9090
-    networks:
-      packethead:
-        ipv4_address: 10.20.0.40
+      #
+      #
+      #  juice:
+      #    image: bkimminich/juice-shop
+      #    container_name: juice
+      #    ports:
+      #     - 8080:3000
+      #    networks:
+      #      packethead:
+      #        ipv4_address: 10.20.0.20
+      #
+      #
+      #  dvwa:
+      #    image: vulnerables/web-dvwa
+      #    container_name: dvwa
+      #    ports:
+      #      - 8081:80
+      #    networks:
+      #      packethead:
+      #        ipv4_address: 10.20.0.30
+      #
+      #  webgoat:
+      #    image: webgoat/webgoat
+      #    container_name: webgoat
+      #    ports:
+      #      - 8082:8080
+      #      - 9090:9090
+      #    networks:
+      #      packethead:
+      #        ipv4_address: 10.20.0.40
 
 ##### Networks #####
 
