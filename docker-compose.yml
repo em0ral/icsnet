@@ -1,11 +1,10 @@
-version: '2.29.1'
 
 services:
 
 ##### Assessment Tools #####
 
   kali: 
-    build: ./kali-rolling
+    build: ./kali
     image: packethead/kali
     container_name: kali
     hostname: kali
