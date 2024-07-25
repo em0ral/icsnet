@@ -5,7 +5,7 @@ services:
 ##### Assessment Tools #####
 
   kali: 
-    build: ./kali
+    build: ./kali-rolling
     image: packethead/kali
     container_name: kali
     hostname: kali
